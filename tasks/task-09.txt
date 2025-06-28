@@ -1,0 +1,6 @@
+9. Create an Ansible vault to store user passwords with the following conditions:
+
+    a) The name of the vault is vault.yml
+    b) The vault contains two variables, dev_pass with value as redhat and mgr_pass with value as linux respectively.
+    c) The password to encrypt and decrypt the vault is rh294lab
+    d) The password is stored in the file /home/x69van/ansible/password.txt

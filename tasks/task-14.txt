@@ -1,0 +1,20 @@
+14. Create user accounts. 
+
+Create a file called /home/x69van/ansible/user_list.yml with the content below:
+	
+	users:
+	  - name: adam
+	    job: developer
+	    uid: 3000
+	  - name: gabriel
+	    job: manager
+	    uid: 3001
+	  - name: lucifer
+	    job: developer
+	    uid: 3002
+
+Using the password vault created elsewhere in this exam, create a playbook called /home/x69van/ansible/create_user.yml that creates user accounts as follows:
+
+    a) Users with a job description of developer should be created on managed nodes in the dev and test host groups assigned the password from the dev_pass variable and is a member of supplementary group devops.
+    b) Users with a job description of manager should be created on managed nodes in the prod host group assigned the password from the mgr_pass variable and is a member of supplementary group opsmgr.
+    c) Passwords should use the SHA512 hash format. Your playbook should work using the vault password file created elsewhere in this exam.

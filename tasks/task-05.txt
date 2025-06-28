@@ -1,0 +1,7 @@
+5. Create a role called apache in /home/x69van/ansible/roles with the following requirements:
+
+    a) The httpd package should be installed, httpd service should be enabled on boot, and started.
+    b) The firewall is enabled and running with a rule to allow access to the web server.
+    c) A template file index.html.j2 exists (you have to create this file) and is used to create the file /var/www/html/index.html with the following output:
+      Welcome to HOSTNAME on IPADDRESS, where HOSTNAME is the fully qualified domain name of the managed node and IPADDRESS is the IP address of the managed node.
+    d) Create a playbook called /home/x69van/ansible/apache-role.yml that uses this role as follows: The playbook runs on hosts in the webservers host group.

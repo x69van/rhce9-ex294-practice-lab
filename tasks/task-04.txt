@@ -1,0 +1,6 @@
+4. Install the RHEL system roles package and create a playbook called /home/x69van/ansible/timesync.yml that:
+
+    a) Runs on all the managed hosts.
+    b) Uses the timesync role.
+    c) Configures the role to use the time server 172.25.254.250
+    d) Configures the role to set the iburst parameter as enabled.

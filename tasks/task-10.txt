@@ -1,0 +1,15 @@
+10. Generate hosts files:
+
+    a) Create a template called /home/x69van/ansible/hosts.j2. Complete the template so that it can be used to generate a file with a line for each inventory host in the same format as /etc/hosts
+    b) Create a playbook called /home/x69van/ansible/gen_hosts.yml that uses this template to generate the file /etc/myhosts on hosts in the dev host group.
+    c) When completed, the file /etc/myhosts on hosts in the dev host group should have a line for each managed host:
+
+	Result expected:
+
+      127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
+      ::1       localhost localhost.localdomain localhost6 localhost6.localdomain6
+      192.168.10.x node1.example.com node1
+      192.168.10.y node2.example.com node2
+      192.168.10.z node3.example.com node3
+      192.168.10.a node4.example.com node4
+      192.168.10.b node5.example.com node5

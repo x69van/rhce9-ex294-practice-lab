@@ -1,0 +1,8 @@
+6. Use Ansible Galaxy with the requirements file called /home/x69van/ansible/roles/requirements.yml to download and install roles to /home/x69van/ansible/roles from the following URLs:
+
+    a) https://galaxy.ansible.com/download/zabbix-zabbix-1.0.6.tar.gz
+      The name of this role should be zabbix.
+    b) https://galaxy.ansible.com/download/openafs_contrib-openafs-1.9.0.tar.gz
+      The name of this role should be security.
+    c) https://galaxy.ansible.com/download/mafalb-squid-0.2.0.tar.gz
+      The name of this role should be squid.

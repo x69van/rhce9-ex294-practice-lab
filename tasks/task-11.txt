@@ -1,0 +1,13 @@
+11. Create a playbook called /home/x69van/ansible/hwreport.yml that produces an output file called /root/hwreport.txt on all of the managed nodes with the following information:
+
+    a) Inventory hostname
+    b) Total memory in MB
+    c) BIOS version
+
+    Each line of the output file contains a single key-value pair.
+      
+	Example:
+
+	INVENTORY_HOSTNAME=node-hostname
+      	TOTAL_MEMORY_IN_MB=1024
+      	BIOS_VERSION=2.1.2

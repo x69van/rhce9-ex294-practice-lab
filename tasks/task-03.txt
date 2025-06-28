@@ -1,0 +1,5 @@
+3. Create a playbook called /home/x69van/ansible/packages.yml that:
+
+    a) Installs the php and mariadb packages on hosts in the dev, test, and prod host groups only.
+    b) Installs the RPM Development Tools package group on hosts in the dev host group only.
+    c) Updates all packages to the latest version on hosts in the dev host group only.

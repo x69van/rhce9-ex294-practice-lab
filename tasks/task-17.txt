@@ -1,0 +1,8 @@
+17. Create and use partitions:
+
+Create /home/x69van/ansible/partition.yml, which will create partitions on all the managed nodes: 
+
+    a) After vdb creating a 1200M primary partition, partition number 1, and format it into ext4 filesystem.
+    b) On the prod group to permanently mount the partition to /srv directory.
+    c) If there is not enough disk space, give prompt information "Could not create partition of that size" and create a 800M partition.
+    d) If vdb does not exist, a prompt message will be given "this disk does not exist."

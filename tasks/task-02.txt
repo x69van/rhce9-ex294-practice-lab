@@ -1,0 +1,20 @@
+2. Create a playbook called /home/x69van/ansible/yum-repo.yml. As a system administrator, you will need to install software on the managed nodes:
+
+    a) Create the yum repositories on each of the managed nodes as per the following details:
+    b) NOTE: you need to create 2 repos (BaseOS & AppStream) in the managed nodes.
+
+      BaseOS:
+      name: BaseOS
+      baseurl: file:///mnt/BaseOS/
+      description: Base OS Repo
+      gpgcheck: yes
+      enabled: no
+      key: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux-9
+
+      AppStream:
+      name: AppStream
+      baseurl: file:///mnt/AppStream/
+      description: AppStream Repo
+      gpgcheck: yes
+      enabled: no
+      key: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux-9

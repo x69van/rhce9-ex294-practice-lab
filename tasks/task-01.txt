@@ -1,0 +1,13 @@
+1. Install and configure Ansible on the control node (ansible-server): 
+
+    a) Install the required packages.
+    b) Create a static inventory file called /home/x69van/ansible/inventory so that:
+      i) node1 is a member of the dev host group.
+      ii) node2 is a member of the test host group.
+      iii) node3 and node4 are the members of the prod host group.
+      iv) node5 is a member of the balancers host group.
+    c) The prod group is a member of the webservers host group.
+    d) Create a configuration file called /home/x69van/ansible/ansible.cfg so that:
+      i) The host inventory file is /home/x69van/ansible/inventory
+      ii) The default content collections directory is /home/x69van/ansible/mycollection
+      iii) The default roles directory is /home/x69van/ansible/roles

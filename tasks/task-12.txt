@@ -1,0 +1,8 @@
+12. Create a playbook called /home/x69van/ansible/issue.yml as per the following requirements:
+
+    a) The playbook runs on all inventory hosts.
+    b) The playbook replaces the contents of /etc/issue with a single line of text based on the host group:
+
+    i. On hosts in the dev host group, the line reads: Development
+    ii. On hosts in the test host group, the line reads: Test
+    iii. On hosts in the prod host group, the line reads: Production
