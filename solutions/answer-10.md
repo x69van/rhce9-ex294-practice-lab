@@ -5,7 +5,7 @@ Create a Jinja2 template file named `hosts.j2`:
 ::1       localhost localhost.localdomain localhost6 localhost6.localdomain6
 {% for node in groups['all'] %}
 {{ hostvars[node]['ansible_facts']['default_ipv4']['address'] }} {{ hostvars[node]['ansible_facts']['fqdn'] }} {{ hostvars[node]['ansible_facts']['hostname'] }}
-{% endfor%}
+{% endfor %}
 ```
 
 Create an Ansible playbook named `gen_hosts.yml`:
@@ -13,7 +13,7 @@ Create an Ansible playbook named `gen_hosts.yml`:
 ```gen_hosts.yml
 - name: Hosts config deploy
   hosts: all
-  become: True
+  become: true
   tasks:
 
     - name: Template a file to /etc/myhosts
@@ -22,6 +22,7 @@ Create an Ansible playbook named `gen_hosts.yml`:
         src: ./hosts.j2
         dest: /etc/myhosts
 ```
+
 
 Execute the playbook with the following command:
 

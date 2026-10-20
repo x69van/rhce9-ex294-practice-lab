@@ -1,7 +1,7 @@
 Create a Jinja2 template named `hwreport.j2` that outputs the following information about the host:
 
 ```hwreport.j2
-INVENTORY_HOSTNAME={{ ansible_facts['hostname'] }}
+INVENTORY_HOSTNAME={{ inventory_hostname }}
 TOTAL_MEMORY_IN_MB={{ ansible_facts['memtotal_mb'] }}
 BIOS_VERSION={{ ansible_facts['bios_version'] }}
 ```
@@ -11,7 +11,7 @@ Create a playbook named `hwreport.yml` with the following content:
 ```hwreport.yml
 - name: Hardware report deploy
   hosts: all
-  become: True
+  become: true
   tasks:
 
     - name: Template a file to /etc/file.conf

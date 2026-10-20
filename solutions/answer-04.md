@@ -1,15 +1,15 @@
-Install the role in roles/ path
+Install the RHEL system roles package:
 
 ```bash
-ansible-galaxy role install linux-system-roles.timesync -p roles/
+sudo dnf install -y rhel-system-roles
 ```
 
-Then, create a playbook to configure the NTP service using the role:
+Then, create a playbook `/home/x69van/ansible/timesync.yml` to configure the NTP service using the role:
 
-```timesync.yaml
+```timesync.yml
 - name: Timesync config
   hosts: all
-  become: True
+  become: true
   vars:
     timesync_ntp_servers:
       - hostname: 172.25.254.250

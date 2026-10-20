@@ -3,7 +3,7 @@ Create a cron job file named `cron.yml` with the following content:
 ```cron.yml
 - name: Cronjob config
   hosts: all
-  become: True
+  become: true
   tasks:
 
     - name: Add the user 'natasha'

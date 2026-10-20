@@ -3,7 +3,7 @@ Create a playbook named `partition.yml` with the following content:
 ```partition.yml
 - name: Partition config
   hosts: all
-  become: True
+  become: true
   tasks:
 
     - name: Checking details
@@ -22,7 +22,7 @@ Create a playbook named `partition.yml` with the following content:
             fs_type: ext4
             part_end: 1200MiB
           when: "'sdb' in ansible_devices"
- 
+
       rescue:
         - name: Cannot create of that size?
           when: "'sdb' in ansible_devices"
@@ -47,7 +47,9 @@ Create a playbook named `partition.yml` with the following content:
             dev: /dev/sdb1
 
         - name: Mounting ...
-          when: inventory_hostname in groups['prod']
+          when:
+            - inventory_hostname in groups['prod']
+            - "'sdb' in ansible_devices"
           ansible.posix.mount:
             path: /srv
             src: /dev/sdb1

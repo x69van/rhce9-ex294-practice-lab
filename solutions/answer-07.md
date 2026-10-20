@@ -3,7 +3,7 @@ Create a file named `squid.yml`:
 ```
 - name: Squid deploy
   hosts: balancers
-  become: True
+  become: true
   roles:
     - squid
 ```

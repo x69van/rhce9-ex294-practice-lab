@@ -9,31 +9,31 @@ Create a playbook file named `lvm.yml` with the following content:
 ```lvm.yml
 - name: LVM config
   hosts: all
-  become: True
+  become: true
   tasks:
 
-    - name: Validate datails
+    - name: Validate details
       block:
-        - name: Validate if vgs 'research' exists
-          when: "'research' not in ansible_lvm.vgs"
+        - name: Validate if vg 'research' exists
+          when: ansible_lvm.vgs is not defined or 'research' not in ansible_lvm.vgs
           ansible.builtin.debug:
             msg: volume group does not exist
 
         - name: Create a logical volume of 1200m
-          when: "'research' in ansible_lvm.vgs"
+          when: ansible_lvm.vgs is defined and 'research' in ansible_lvm.vgs
           community.general.lvol:
             vg: research
             lv: data
             size: 1200m
 
       rescue:
-        - name: Cannot create a lv ?
-          when: "'research' in ansible_lvm.vgs"
+        - name: Cannot create a lv?
+          when: ansible_lvm.vgs is defined and 'research' in ansible_lvm.vgs
           ansible.builtin.debug:
             msg: could not create logical volume of that size
- 
+
         - name: Create a logical volume of 800m
-          when: "'research' in ansible_lvm.vgs"
+          when: ansible_lvm.vgs is defined and 'research' in ansible_lvm.vgs
           community.general.lvol:
             vg: research
             lv: data
@@ -42,7 +42,7 @@ Create a playbook file named `lvm.yml` with the following content:
       always:
 
         - name: Create a ext4 filesystem on /dev/research/data
-          when: "'data' in ansible_lvm.lvs"
+          when: ansible_lvm.vgs is defined and 'research' in ansible_lvm.vgs
           community.general.filesystem:
             fstype: ext4
             dev: /dev/research/data
