@@ -10,16 +10,6 @@ Create inventory file `/home/x69van/ansible/inventory` with the following conten
 
 ```inventory
 [dev]
-node1
-
-[test]
-node2
-
-[prod]
-node3
-node4
-
-[balancers]
 ansible-node-1
 
 [test]
