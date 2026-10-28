@@ -1,1 +1,4 @@
-control.vmdk
+*.raw
+*.qcow2
+*.vmdk
+*.xz
