@@ -73,6 +73,6 @@ ansible-playbook apache-role.yml
 Validate the deployment by checking the Apache service status and accessing the web page
 
 ```bash
-curl node3
-curl node4
+curl ansible-node-3
+curl ansible-node-4
 ```
