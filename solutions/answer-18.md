@@ -48,8 +48,8 @@ cp selinux.yml selinux2.yml
 Install ansible-navigator, then execute the second playbook with it:
 
 ```bash
-sudo pip3 install ansible-navigator
-ansible-navigator run selinux2.yml --mode stdout
+pip3 install --user ansible-navigator
+ansible-navigator run selinux2.yml --mode stdout --ee false
 ```
 
 Finally, check the SELinux status again:
