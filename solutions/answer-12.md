@@ -3,7 +3,7 @@ Create a playbook named `issue.yml` with the following content:
 ```issue.yml
 - name: Issue file config
   hosts: all
-  become: True
+  become: true
   tasks:
 
     - name: Replaces /etc/issue on dev group

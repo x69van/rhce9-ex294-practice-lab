@@ -1,7 +1,8 @@
-Install the role `linux-system-roles.selinux` using Ansible Galaxy:
+Install the role `linux-system-roles.selinux` (via the RHEL system roles package, or Galaxy):
 
 ```bash
-ansible-galaxy role install linux-system-roles.selinux -p roles/
+sudo dnf install -y rhel-system-roles
+# or: ansible-galaxy role install linux-system-roles.selinux -p roles/
 ```
 
 Create a playbook named selinux.yml:
@@ -9,11 +10,11 @@ Create a playbook named selinux.yml:
 ```selinux.yml
 - name: Selinux config 1
   hosts: all
-  become: True
+  become: true
   vars:
-    - selinux_state: permissive
+    selinux_state: permissive
   roles:
-    - ./roles/linux-system-roles.selinux
+    - linux-system-roles.selinux
 ```
 
 Execute the playbook to set SELinux to permissive mode:
@@ -28,22 +29,27 @@ Check the SELinux status on all hosts:
 ansible all -a 'sestatus' -b
 ```
 
-To set SELinux to enforcing mode create another playbook:
+Create another copy of the playbook and set SELinux to enforcing:
+
+```bash
+cp selinux.yml selinux2.yml
+```
 
 ```selinux2.yml
 - name: Selinux config 2
   hosts: all
-  become: True
+  become: true
   vars:
-    - selinux_state: enforcing
+    selinux_state: enforcing
   roles:
-    - ./roles/linux-system-roles.selinux
+    - linux-system-roles.selinux
 ```
 
-Execute the second playbook to set SELinux to enforcing mode:
+Install ansible-navigator, then execute the second playbook with it:
 
 ```bash
-ansible-playbook selinux2.yml
+pip3 install --user ansible-navigator
+ansible-navigator run selinux2.yml --mode stdout --ee false
 ```
 
 Finally, check the SELinux status again:

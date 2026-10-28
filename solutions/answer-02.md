@@ -3,7 +3,7 @@ Create a playbook to configure the repositories for BaseOS and AppStream.
 ```yum-repo.yml
 - name: Repo config
   hosts: all
-  become: True
+  become: true
   tasks:
 
     - name: Add repository BaseOS
@@ -11,18 +11,18 @@ Create a playbook to configure the repositories for BaseOS and AppStream.
         name: BaseOS
         baseurl: file:///mnt/BaseOS/
         description: Base OS Repo
-        gpgcheck: True
-        enabled: False
-        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
-    
+        gpgcheck: true
+        enabled: false
+        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux-9
+
     - name: Add repository AppStream
       ansible.builtin.yum_repository:
         name: AppStream
         baseurl: file:///mnt/AppStream/
         description: AppStream Repo
-        gpgcheck: True
-        enabled: False
-        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+        gpgcheck: true
+        enabled: false
+        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux-9
 ```
 
 Execute the playbook with the following command:

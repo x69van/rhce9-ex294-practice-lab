@@ -1,0 +1,4 @@
+*.raw
+*.qcow2
+*.vmdk
+*.xz

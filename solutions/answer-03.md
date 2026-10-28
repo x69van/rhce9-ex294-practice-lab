@@ -3,7 +3,7 @@ Create playbook to install packages on all hosts, with specific conditions for d
 ```packages.yml
 - name: Packages config
   hosts: all
-  become: True
+  become: true
   tasks:
 
     - name: Install php and mariadb

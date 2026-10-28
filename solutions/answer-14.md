@@ -18,7 +18,7 @@ Create file called `create_user.yml` with the following content:
 ```create_user.yml
 - name: Creating users on dev and test groups
   hosts: dev, test
-  become: True
+  become: true
   vars_files:
     - ./vault.yml
     - ./user_list.yml
@@ -37,12 +37,12 @@ Create file called `create_user.yml` with the following content:
         shell: /bin/bash
         uid: "{{ item.uid }}"
         groups: devops
-        append: True
+        append: true
         password: "{{ dev_pass | password_hash('sha512') }}"
 
 - name: Creating users on prod group
   hosts: prod
-  become: True
+  become: true
   vars_files:
     - ./vault.yml
     - ./user_list.yml
@@ -61,7 +61,7 @@ Create file called `create_user.yml` with the following content:
         shell: /bin/bash
         uid: "{{ item.uid }}"
         groups: opsmgr
-        append: True
+        append: true
         password: "{{ mgr_pass | password_hash('sha512') }}"
 ```
 

@@ -3,7 +3,7 @@ Create a playbook named `test.yml` that does the following:
 ```test.yml
 - name: Test config
   hosts: test
-  become: True
+  become: true
   tasks:
 
     - name: Ensure group "webtest" exists
@@ -18,23 +18,21 @@ Create a playbook named `test.yml` that does the following:
         group: webtest
         mode: '2775'
 
-    - name: Create a directory /var/www/html/webtest
+    - name: Ensure /var/www/html exists
       ansible.builtin.file:
-        path: /var/www/html/webtest
+        path: /var/www/html
         state: directory
 
     - name: Create a symbolic link
       ansible.builtin.file:
-        src: /var/www/html/webtest
-        dest: /webtest
+        src: /webtest
+        dest: /var/www/html/webtest
         state: link
-        force: True
 
-    - name: Creating file  
-      ansible.builtin.lineinfile:
-        path: /webtest/index.html
-        line: Testing.
-        create: True
+    - name: Creating file
+      ansible.builtin.copy:
+        content: "Testing.\n"
+        dest: /webtest/index.html
 ```
 
 Execute the playbook with the command:
@@ -47,5 +45,5 @@ Validate with ad-hoc commands:
 
 ```bash
 ansible test -a 'cat /var/www/html/webtest/index.html'
-ansible test -a 'ls -ld /var/www/html/webtest'
+ansible test -a 'ls -ld /webtest /var/www/html/webtest'
 ```

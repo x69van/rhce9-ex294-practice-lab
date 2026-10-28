@@ -31,15 +31,15 @@ Configure the role in roles/apache/tasks/main.yml
   ansible.builtin.service:
     name: "{{ item }}"
     state: started
-    enabled: True
+    enabled: true
 
 - name: Permanently enable https/http service, also enable it immediately if possible
   loop: "{{ rules }}"
   ansible.posix.firewalld:
     service: "{{ item }}"
     state: enabled
-    permanent: True
-    immediate: True
+    permanent: true
+    immediate: true
 
 - name: Template a file
   ansible.builtin.template:
@@ -51,7 +51,7 @@ Configure the role in roles/apache/tasks/main.yml
 Create a template file in roles/apache/templates/index.html.j2
 
 ```index.html.j2
-Welcome to {{ ansible_facts['fqdn'] }}.cluster.loc on {{ ansible_facts['default_ipv4']['address'] }}
+Welcome to {{ ansible_facts['fqdn'] }} on {{ ansible_facts['default_ipv4']['address'] }}
 ```
 
 Create a playbook to deploy the role in a file named apache-role.yml
@@ -59,7 +59,7 @@ Create a playbook to deploy the role in a file named apache-role.yml
 ```apache-role.yml
 - name: Apache role deploy
   hosts: webservers
-  become: True
+  become: true
   roles:
     - apache
 ```
@@ -73,6 +73,6 @@ ansible-playbook apache-role.yml
 Validate the deployment by checking the Apache service status and accessing the web page
 
 ```bash
-curl vm-node3
-curl vm-node4
+curl ansible-node-3
+curl ansible-node-4
 ```

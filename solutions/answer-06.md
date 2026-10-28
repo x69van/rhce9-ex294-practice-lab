@@ -1,4 +1,4 @@
-Create a `requirements.yml` file to specify the roles you want to install from Ansible Galaxy. The file should include the following roles:
+Create `/home/x69van/ansible/roles/requirements.yml` to specify the roles you want to install from Ansible Galaxy:
 
 ```requirements.yml
 - name: zabbix
@@ -12,5 +12,5 @@ Create a `requirements.yml` file to specify the roles you want to install from A
 Install the roles using the following command:
 
 ```bash
-ansible-galaxy role install -p roles/ -r requirements.yml
+ansible-galaxy role install -p roles/ -r roles/requirements.yml
 ```
