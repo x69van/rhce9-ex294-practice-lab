@@ -20,7 +20,17 @@ node3
 node4
 
 [balancers]
-node5
+ansible-node-1
+
+[test]
+ansible-node-2
+
+[prod]
+ansible-node-3
+ansible-node-4
+
+[balancers]
+ansible-node-5
 
 [webservers:children]
 prod
